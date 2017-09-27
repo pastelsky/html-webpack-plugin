@@ -250,7 +250,7 @@ HtmlWebpackPlugin.prototype.executeTemplate = function (templateFunction, chunks
   return Promise.resolve()
     // Template processing
     .then(function () {
-      var templateParams = {
+      var templateParams = Object.assign({
         compilation: compilation,
         webpack: compilation.getStats().toJson(),
         webpackConfig: compilation.options,
@@ -258,7 +258,7 @@ HtmlWebpackPlugin.prototype.executeTemplate = function (templateFunction, chunks
           files: assets,
           options: self.options
         }
-      };
+      }, self.templateData);
       var html = '';
       try {
         html = templateFunction(templateParams);
