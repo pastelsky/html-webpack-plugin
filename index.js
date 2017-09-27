@@ -258,7 +258,7 @@ HtmlWebpackPlugin.prototype.executeTemplate = function (templateFunction, chunks
           files: assets,
           options: self.options
         }
-      }, self.templateData);
+      }, self.options.templateData);
       var html = '';
       try {
         html = templateFunction(templateParams);
